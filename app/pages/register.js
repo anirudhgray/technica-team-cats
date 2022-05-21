@@ -4,7 +4,11 @@ import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { useContext } from "react";
 import { PharmaContext } from "../context/PharmaContext";
+import { useRouter } from "next/router";
+
 export default function Register() {
+  const router = useRouter()
+
   const initialState = {
     email: "",
     fname: "",
@@ -20,6 +24,7 @@ export default function Register() {
 
     const res = await setDoc(doc(db, "users", currentAccount), formState);
     console.log("res = ", res);
+    router.push("/dashboard")
   };
   return (
     <div className={styles.form_container}>

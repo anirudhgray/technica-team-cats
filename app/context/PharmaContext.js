@@ -8,19 +8,42 @@ export const PharmaContext = createContext();
 export const PharmaProvider = ({ children }) => {
   const [appStatus, setAppStatus] = useState("loading");
   const [currentAccount, setCurrentAccount] = useState("");
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [type, setType] = useState("");
 
   const router = useRouter();
 
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
+
   const checkWalletAddress = async (walletAddress) => {
     const docRef = doc(db, "users", walletAddress);
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) console.log("Document data:", docSnap.data());
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data())
+      setEmail(docSnap.data().email)
+      setType(docSnap.data().accountType)
+      setFirstName(docSnap.data().firstName)
+      setLastName(docSnap.data().lastName)
+      router.push('/dashboard')
+    }
+    else {
+      router.push('/register')
+      console.log("not found")
+    };
+  };
+
+  const checkWalletAddressInitial = async (walletAddress) => {
+    const docRef = doc(db, "users", walletAddress);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data())
+    }
     else {
       console.log("not found")
-      router.push("/register")
     };
   };
 
@@ -34,7 +57,7 @@ export const PharmaProvider = ({ children }) => {
         // connected
         setAppStatus("connected");
         setCurrentAccount(addressArray[0]);
-        checkWalletAddress(addressArray[0]);
+        checkWalletAddressInitial(addressArray[0]);
       } else {
         // not connected
         router.push("/");
@@ -68,7 +91,7 @@ export const PharmaProvider = ({ children }) => {
 
   return (
     <PharmaContext.Provider
-      value={{ appStatus, currentAccount, connectToWallet }}
+      value={{ appStatus, currentAccount, connectToWallet, email, firstName, lastName, type }}
     >
       {children}
     </PharmaContext.Provider>

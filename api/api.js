@@ -1,11 +1,11 @@
 require("dotenv").config();
 const {
-    AccountId,
-    PrivateKey,
-    Client,
-    ContractFunctionParameters,
-    ContractExecuteTransaction,
-    ContractCallQuery,
+  AccountId,
+  PrivateKey,
+  Client,
+  ContractFunctionParameters,
+  ContractExecuteTransaction,
+  ContractCallQuery,
 } = require("@hashgraph/sdk");
 
 // Configure accounts and client
@@ -14,7 +14,7 @@ const operatorKey = PrivateKey.fromString(process.env.OPERATOR_PVKEY);
 const client = Client.forTestnet().setOperator(operatorId, operatorKey);
 
 const express = require("express");
-const app = express()
+const app = express();
 
 app.get("/set_med/:name/:uid", async (req, res) => {
     const contract = new ContractExecuteTransaction()
