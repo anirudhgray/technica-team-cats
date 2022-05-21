@@ -5,8 +5,9 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+const firebase_api_key = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 const firebaseConfig = {
-  apiKey: "AIzaSyCdaM9xFif6i21xnvqL4OlWydGNvgu6XCw",
+  apiKey: firebase_api_key,
   authDomain: "technica-team-cats.firebaseapp.com",
   projectId: "technica-team-cats",
   storageBucket: "technica-team-cats.appspot.com",
