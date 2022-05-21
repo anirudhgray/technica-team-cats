@@ -1,3 +1,6 @@
+/**
+ * This file is need to upload the compiled smart contract .bin file to the block chain
+ */
 require("dotenv").config();
 const {
 	AccountId,
@@ -44,7 +47,7 @@ async function main() {
 	const fileCreateTx = new FileCreateTransaction()
 		.setContents(contractBytecode)
 		.setKeys([operatorKey])
-		.setMaxTransactionFee(1)
+		.setMaxTransactionFee(10000)
 		.freezeWith(client);
 	const fileCreateSign = await fileCreateTx.sign(operatorKey);
 	const fileCreateSubmit = await fileCreateSign.execute(client);
