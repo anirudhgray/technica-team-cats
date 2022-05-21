@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Dashboard.module.css";
 import { useContext } from "react";
 import { PharmaContext } from "../context/PharmaContext";
+import Link from 'next/link';
 export default function Dashboard() {
   const { appStatus, currentAccount, connectToWallet, email, firstName, lastName, type } =
     useContext(PharmaContext);
@@ -9,16 +10,15 @@ export default function Dashboard() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <p className={styles.title}>PharmaTrue.</p>
-        <img src='#'></img>
+        <Link href="/">
+          <p className={styles.title}>PharmaTrue.</p>
+        </Link>
+        <p className={styles.white}>{email} ({type})</p>
       </header>
       <div className={styles.main}>
-        <div className={styles.container}>
-          <p className={styles.centered}>Logged in as {email} with wallet {currentAccount}</p>
-        </div>
         <form className={styles.centered}>
-          <input placeholder='Batch to verify'></input>
-          <button type='submit'>Verify</button>
+          <input placeholder='Batch to check'></input>
+          <button type='submit'>Check</button>
         </form>
       </div>
     </div>
