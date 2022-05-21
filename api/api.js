@@ -31,6 +31,7 @@ app.get("/set_med/:name/:uid", async (req, res) => {
     //res.send(`Status: ${}`);
 });
 app.get("/get_med/:name", async (req, res) => {
+    //added meds: calpol,allegra
     const query = new ContractCallQuery()
         .setContractId("0.0.34875863")
         .setGas(100000)
