@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   const userLoggedIn = (
-    <p>Logged in.</p>
+    <p>Logged in. {currentAccount}</p>
   )
 
   const noMetaMaskFound = (

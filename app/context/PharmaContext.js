@@ -44,6 +44,7 @@ export const PharmaProvider = ({children}) => {
 
       if (addressArray.length > 0) {
         setCurrentAccount(addressArray[0])
+        setAppStatus('connected')
       } else {
         router.push('/')
         setAppStatus('notConnected')
