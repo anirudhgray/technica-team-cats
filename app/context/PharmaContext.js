@@ -41,6 +41,10 @@ export const PharmaProvider = ({ children }) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data())
+      setEmail(docSnap.data().email)
+      setType(docSnap.data().accountType)
+      setFirstName(docSnap.data().firstName)
+      setLastName(docSnap.data().lastName)
     }
     else {
       console.log("not found")

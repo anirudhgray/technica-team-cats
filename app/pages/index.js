@@ -61,7 +61,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.title}>
           <h1 className={styles.heading}>PharmaTrue.</h1>
-          <p className={styles.subheading}>Blah Blah Lorem Ipsum Tagline</p>
+          <p className={styles.subheading}>Protecting You.</p>
         </div>
         <div>{app(appStatus)}</div>
       </main>
@@ -69,33 +69,36 @@ export default function Home() {
         <h2>About PharmaTrue</h2>
         <br />
         <p>
-          Bacon ipsum dolor amet tenderloin shoulder meatloaf flank. Doner shank
-          t-bone fatback jerky chuck. Pork loin landjaeger corned beef ribeye
-          doner, shankle sirloin spare ribs brisket pork pork chop. Spare ribs
-          filet mignon pastrami, chuck salami beef turducken pig t-bone
-          frankfurter. T-bone sausage beef ribs prosciutto leberkas cupim. Beef
-          ribs t-bone strip steak fatback pork. Brisket cow turkey chicken,
-          short ribs ham hock alcatra jerky corned beef shank ground round
-          kielbasa capicola andouille.Bacon ipsum dolor amet tenderloin shoulder
-          meatloaf flank. Doner shank t-bone fatback jerky chuck. Pork loin
-          landjaeger corned beef ribeye doner, shankle sirloin spare ribs
-          brisket pork pork chop. Spare ribs filet mignon pastrami, chuck salami
-          beef turducken pig t-bone frankfurter. T-bone sausage beef ribs
-          prosciutto leberkas cupim. Beef ribs t-bone strip steak fatback pork.
-          Brisket cow turkey chicken, short ribs ham hock alcatra jerky corned
-          beef shank ground round kielbasa capicola andouille.
+        Medicines fall under essential commodities and it is very important that pharmacies deliver the correct medicine which is verified by licensed professionals for the well being of patients. However, there are a lot of fake and counterfeit medicines and drugs in the marketplace today, which can cause grave damage to end users, on a massive scale — in fact the global sales of counterfeit drugs can range up to 200 billion USD per year.
         </p>
+        <p style={{'marginTop':'1.5rem'}}>At its core, our solution is a blockchain-based application which would ensure the validity and genuineness of a drug throughout the supply chain, from the manufacturer to the end user.</p>
       </div>
       <div className={styles.flowchart_div}>
         <img src="/flowchart.svg" alt="" className={styles.flowchart_img} />
       </div>
       <footer className={styles.footer}>
-        <Link href="/dashboard">
+        <div className={styles.white}>
+          <h3>Team Cats</h3>
+          <p>Sankhayan Bhattacharjee</p>
+          <p>Sayar Bhattacharyya</p>
+          <p>Tanushree Madaan</p>
+          <p>Anirudh Mishra</p>
+        </div>
+        <div className={styles.white}>
+          <h3>Reach Us At</h3>
+          <Link href="https://github.com/anirudhgray/technica-team-cats">
           <div className={styles.github_text}>
-            <p>Find Us on Github</p>
-            <img src="/github.svg" alt="" />
+            <p>Github</p>
+            <img height={30} src="/github.svg" alt="" />
           </div>
-        </Link>
+          </Link>
+          <Link href="https://devpost.com/software/PharmaTrue">
+          <div className={styles.github_text}>
+            <p>Devpost</p>
+            <img height={30} src="/github.svg" alt="" />
+          </div>
+          </Link>
+        </div>
       </footer>
     </div>
   );
