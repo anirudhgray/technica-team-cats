@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useContext } from "react";
 import { PharmaContext } from "../context/PharmaContext";
-
+import Link from "next/link";
 export default function Home() {
   const { appStatus, currentAccount, connectToWallet } =
     useContext(PharmaContext);
@@ -23,8 +23,13 @@ export default function Home() {
     }
   };
 
-  const userLoggedIn = (<div><p>Logged in. {currentAccount}</p>
-  <button onClick={() => connectToWallet()}>Continue with Metamask eheh</button></div>);
+  const userLoggedIn = (
+    <div>
+      <button className={styles.login_button} onClick={() => connectToWallet()}>
+        Continue with Metamask
+      </button>
+    </div>
+  );
 
   const noMetaMaskFound = <p>Poops. Get Metamask dweeb.</p>;
 
@@ -54,22 +59,44 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.heading}>PharmaTrue.</h1>
-        <p className={styles.subheading}>Blah Blah Lorem Ipsum Tagline</p>
+        <div className={styles.title}>
+          <h1 className={styles.heading}>PharmaTrue.</h1>
+          <p className={styles.subheading}>Blah Blah Lorem Ipsum Tagline</p>
+        </div>
         <div>{app(appStatus)}</div>
-
-        <div>
-          <h2>About PharmaTrue.</h2>
-          <p>Lorem Ipsum stuff.</p>
-        </div>
-
-        <img src="#" alt="flowchart"></img>
-
-        <div>
-          <h2>About Us.</h2>
-          <p>Team Cats!!!!</p>
-        </div>
       </main>
+      <div className={styles.about_pharma}>
+        <h2>About PharmaTrue</h2>
+        <br />
+        <p>
+          Bacon ipsum dolor amet tenderloin shoulder meatloaf flank. Doner shank
+          t-bone fatback jerky chuck. Pork loin landjaeger corned beef ribeye
+          doner, shankle sirloin spare ribs brisket pork pork chop. Spare ribs
+          filet mignon pastrami, chuck salami beef turducken pig t-bone
+          frankfurter. T-bone sausage beef ribs prosciutto leberkas cupim. Beef
+          ribs t-bone strip steak fatback pork. Brisket cow turkey chicken,
+          short ribs ham hock alcatra jerky corned beef shank ground round
+          kielbasa capicola andouille.Bacon ipsum dolor amet tenderloin shoulder
+          meatloaf flank. Doner shank t-bone fatback jerky chuck. Pork loin
+          landjaeger corned beef ribeye doner, shankle sirloin spare ribs
+          brisket pork pork chop. Spare ribs filet mignon pastrami, chuck salami
+          beef turducken pig t-bone frankfurter. T-bone sausage beef ribs
+          prosciutto leberkas cupim. Beef ribs t-bone strip steak fatback pork.
+          Brisket cow turkey chicken, short ribs ham hock alcatra jerky corned
+          beef shank ground round kielbasa capicola andouille.
+        </p>
+      </div>
+      <div className={styles.flowchart_div}>
+        <img src="/flowchart.svg" alt="" className={styles.flowchart_img} />
+      </div>
+      <footer className={styles.footer}>
+        <Link href="/dashboard">
+          <div className={styles.github_text}>
+            <p>Find Us on Github</p>
+            <img src="/github.svg" alt="" />
+          </div>
+        </Link>
+      </footer>
     </div>
   );
 }
