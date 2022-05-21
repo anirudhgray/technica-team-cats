@@ -18,7 +18,10 @@ export const PharmaProvider = ({ children }) => {
     const docRef = doc(db, "users", walletAddress);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) console.log("Document data:", docSnap.data());
-    else console.log("not found");
+    else {
+      console.log("not found")
+      router.push("/register")
+    };
   };
 
   const checkIfWalletIsConnected = async () => {
