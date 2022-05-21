@@ -6,9 +6,6 @@ const {
 	FileCreateTransaction,
 	ContractCreateTransaction,
 	ContractFunctionParameters,
-	ContractExecuteTransaction,
-	ContractCallQuery,
-	Hbar,
 } = require("@hashgraph/sdk");
 const fs = require("fs");
 
@@ -16,7 +13,7 @@ const fs = require("fs");
 const operatorId = AccountId.fromString(process.env.OPERATOR_ID);
 const operatorKey = PrivateKey.fromString(process.env.OPERATOR_PVKEY);
 const client = Client.forTestnet().setOperator(operatorId, operatorKey);
-
+/*
 function update_directory(contractId,med_name,med_uid){
 	const contract=new ContractExecuteTransaction()
 		.setContractId(contractId)
@@ -36,6 +33,7 @@ function get_directory(contractId,med_name){
 		return query;
 
 }
+*/
 
 async function main() {
 
@@ -54,7 +52,9 @@ async function main() {
 	const bytecodeFileId = fileCreateRx.fileId;
 	console.log(`- The bytecode file ID is: ${bytecodeFileId} \n`);
 
+
 	// Instantiate the smart contract
+
 	const contractInstantiateTx = new ContractCreateTransaction()
 		.setBytecodeFileId(bytecodeFileId)
 		.setGas(100000)
@@ -67,17 +67,16 @@ async function main() {
 	const contractAddress = contractId.toSolidityAddress();
 	console.log(`- The smart contract ID is: ${contractId} \n`);
 	console.log(`- The smart contract ID in Solidity format is: ${contractAddress} \n`);
+/*
+// Call contract function to update the state variable
+	const contractExecuteTx = update_directory("0.0.34875863","allegra",56732);
 
-	// Call contract function to update the state variable
-	const contractExecuteTx = update_directory(contractId,"allegra",56732);
-	const contractExecuteSubmit = await contractExecuteTx.execute(client);
-	const contractExecuteRx = await contractExecuteSubmit.getReceipt(client);
-	console.log(`- Contract function call status: ${contractExecuteRx.status} \n`);
 
 	// Query the contract to check changes in state variable
-	const contractQueryTx1 = get_directory(contractId,"allegra");
+	const contractQueryTx1 = get_directory("0.0.34875863","allegra");
 	const contractQuerySubmit1 = await contractQueryTx1.execute(client);
 	const contractQueryResult1 = contractQuerySubmit1.getUint256(0);
-	console.log(`- Here's the phone number that you asked for: ${contractQueryResult1} \n`);
+	console.log(`- Here's the uid that you asked for: ${contractQueryResult1} \n`);
+*/
 }
 main();
