@@ -23,7 +23,8 @@ export default function Home() {
     }
   };
 
-  const userLoggedIn = <p>Logged in. {currentAccount}</p>;
+  const userLoggedIn = (<div><p>Logged in. {currentAccount}</p>
+  <button onClick={() => connectToWallet()}>Continue with Metamask eheh</button></div>);
 
   const noMetaMaskFound = <p>Poops. Get Metamask dweeb.</p>;
 
