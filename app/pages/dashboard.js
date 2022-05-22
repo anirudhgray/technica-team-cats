@@ -39,10 +39,12 @@ export default function Dashboard() {
         setUid(res.data.uid);
         setBatchName(res.data.name);
       })
-      .then(async (batchName) => {
+      .then(async () => {
         for (let i = 0; i < 4; i++) {
+          console.log(batchName)
           url = "https://pharmatrue.vercel.app/verified/" + batchName + "/" + i;
           await axios.get(url).then((res) => {
+            console.log(url)
             console.log(res.data);
             const tempVerified = verified;
             tempVerified[i] = res.data.verified;
