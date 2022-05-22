@@ -8,7 +8,7 @@ const {
   ContractCallQuery,
 } = require("@hashgraph/sdk");
 cors=require("cors");
-var allowedSites=["http://localhost:3000","https://pharmatrue-cats.vercel.app/"];
+var allowedSites=["http://localhost:3000","https://pharmatrue-cats.vercel.app"];
 var corsOptions={
     origin:(origin,callback)=>{
             if(!origin)//for apps
