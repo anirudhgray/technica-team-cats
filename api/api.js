@@ -7,6 +7,23 @@ const {
   ContractExecuteTransaction,
   ContractCallQuery,
 } = require("@hashgraph/sdk");
+cors=require("cors");
+var allowedSites=["localhost:3000","https://pharmatrue.netlify.app/"];
+var corsOptions={
+    origin:(origin,callback)=>{
+            if(!origin)//for apps
+            return callback(null,true);
+
+            if(allowedSites.indexOf(origin)==-1)//unauthorized sites
+            {
+                var msg="CORS policy doesn't allow this access";
+                return callback(new Error(msg),false);
+            }
+            
+
+            return callback(null,true)//authorized sites
+    }
+};
 
 // Configure accounts and client
 const operatorId = AccountId.fromString(process.env.OPERATOR_ID);
@@ -15,7 +32,7 @@ const client = Client.forTestnet().setOperator(operatorId, operatorKey);
 
 const express = require("express");
 const app = express();
-
+app.use(cors(corsOptions))
 
 app.get("/",(req,res)=>{
     res.json({response:"hellow"})
