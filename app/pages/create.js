@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function create() {
+export default function Create() {
   const [name, setName] = useState("");
   const [uid, setUid] = useState("");
 
