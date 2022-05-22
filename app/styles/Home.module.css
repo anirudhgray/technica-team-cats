@@ -71,10 +71,11 @@
   margin-top: 0.5rem;
 }
 
-.github_text>p {
+.github_text > p {
   margin-right: 1rem;
 }
 
 .white {
   color: white;
 }
+

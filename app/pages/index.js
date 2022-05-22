@@ -34,7 +34,7 @@ export default function Home() {
   const noMetaMaskFound = <p>Poops. Get Metamask dweeb.</p>;
 
   const noUserFound = (
-    <button onClick={() => connectToWallet()}>Login with Metamask eheh</button>
+    <button className={styles.login_button} onClick={() => connectToWallet()}>Login with Metamask eheh</button>
   );
 
   const error = <p>Poops, try again or use another browser.</p>;
