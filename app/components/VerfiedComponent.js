@@ -2,12 +2,20 @@ import axios from "axios";
 import styles from "../styles/VerfiedComponent.module.css";
 export default function VerifiedComponent({
   batch,
+  roleid,
   role,
   decorator,
   verified,
 }) {
-  const verify = () => {
+  const verify = async () => {
     console.log(batch + " Verified by " + role);
+
+    await axios
+      .get("https://pharmatrue.vercel.app/verify/" + batch + "/" + roleid)
+      .then((res) => {
+        console.log("Verified", res.data);
+        verified = true;
+      });
   };
 
   const imgPath = role + "_" + decorator + ".png";

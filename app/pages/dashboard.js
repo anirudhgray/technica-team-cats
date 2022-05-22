@@ -89,11 +89,14 @@ export default function Dashboard() {
       <div className={styles.main}>
         <form onSubmit={checkBatch} className={styles.centered}>
           <input
+            className={styles.input_field}
             value={medName}
             onChange={updateMedName}
             placeholder="Batch to check"
           ></input>
-          <button type="submit">Check</button>
+          <button className={styles.check_btn} type="submit">
+            Check
+          </button>
         </form>
       </div>
       {uid ? (
@@ -101,6 +104,7 @@ export default function Dashboard() {
           {roles.map((role, i) => (
             <VerifiedComponent
               key={"role-" + i}
+              roleid={i}
               batch={batchName}
               role={role}
               decorator={type == role ? "colored" : "bw"}
