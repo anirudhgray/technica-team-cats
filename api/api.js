@@ -16,6 +16,11 @@ const client = Client.forTestnet().setOperator(operatorId, operatorKey);
 const express = require("express");
 const app = express();
 
+
+app.get("/",(req,res)=>{
+    res.json({response:"hellow"})
+})
+
 app.get("/set_med/:name/:uid", async (req, res) => {
     const contract = new ContractExecuteTransaction()
         .setContractId("0.0.34877212")
@@ -70,4 +75,6 @@ app.get("/verified/:name/:id", async (req, res) => {
     
     res.json({ verified: contractQueryResult1 })
 });
-app.listen(8000)
+app.listen(3000)
+
+module.exports=app //for running as serverless function
