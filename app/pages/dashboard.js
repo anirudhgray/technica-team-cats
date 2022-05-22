@@ -99,6 +99,8 @@ export default function Dashboard() {
           </button>
         </form>
       </div>
+      <p className={styles.centered}>UID: {uid}</p>
+      <p className={styles.centered}>Name: {batchName}</p>
       {uid ? (
         <div className={styles.centered}>
           {roles.map((role, i) => (
