@@ -13,8 +13,11 @@
 }
 
 .centered {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
+  width: min(80%, 1000px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
@@ -35,7 +38,7 @@
 }
 .avatar_div {
   display: flex;
-  align-items: center;
+  align-items:flex-start;
   justify-content: center;
 }
 .avatar_div > img {
